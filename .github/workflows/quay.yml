@@ -20,13 +20,13 @@ jobs:
         run: echo hello `date` > README.md
 
       # Runs a set of commands using the runners shell
-      - name: push to quay
+      - name: push image to quay
         run: |
           docker login quay.io -u ${{ secrets.QUAY_USER }} -p ${{ secrets.QUAY_PASS }}
           docker pull hello-world
           docker tag hello-world quay.io/${{ secrets.QUAY_USER }}/my-repo:latest
           docker push quay.io/${{ secrets.QUAY_USER }}/my-repo:latest
-      - name: push README to Dockerhub
+      - name: push README to quay
         uses: christian-korneck/update-container-description-action@v1
         env:
           DOCKER_APIKEY: ${{ secrets.QUAY_APIKEY }}
