@@ -31,7 +31,7 @@ jobs:
         env:
           DOCKER_APIKEY: ${{ secrets.QUAY_APIKEY }}
         with:
-          destination_container_repo: ${{ secrets.QUAY_USER }}/my-repo
+          destination_container_repo: quay.io/${{ secrets.QUAY_USER }}/my-repo
           provider: quay
           readme_file: 'README.md'
 
